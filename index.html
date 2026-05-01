@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+        <title>Edu Lanches - Lanchonete e Açaiteria</title>
+
+        <!-- Ícone da Aba do Navegador (Favicon - Emoji) -->
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+
+        <!-- Fontes e Ícones -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <!-- Seu arquivo CSS -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <!-- NAVBAR -->
+        <nav class="navbar" id="navbar">
+            <a href="#" class="logo"><i class="fas fa-hamburger"></i>EDU LANCHES</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#acai">Açaí</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li>
+                    <button class="cart-nav-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-fire"></i> Trabalhamos com Delivery!</div>
+                <h1>EDU <span>LANCHES</span></h1>
+                <div class="hero-subtitle">Lanchonete e Açaiteria</div>
+                <p>O melhor cachorro quente, bauru artesanal, pastéis crocantes e açaí da região! Sabores que conquistam
+                    desde o primeiro pedido.</p>
+                <div class="hero-buttons">
+                    <a href="#cardapio" class="btn btn-primary"><i class="fas fa-utensils"></i> Ver Cardápio</a>
+                    <a href="https://wa.me/5584996722829" class="btn btn-outline" target="_blank"><i
+                            class="fab fa-whatsapp"></i> Fazer Pedido</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>🌭 CACHORRO QUENTE</span><span>🥪 BAURU ESPECIAL</span><span>🥟 PASTEL DA CASA</span><span>🍲 SOPA
+                    DE COSTELA</span><span>🍠 CUSCUZ RECHEADO</span><span>🫐 AÇAÍ PREMIUM</span><span>🥤
+                    REFRIGERANTES</span><span>🍟 BATATA FRITA</span>
+                <span>🌭 CACHORRO QUENTE</span><span>🥪 BAURU ESPECIAL</span><span>🥟 PASTEL DA CASA</span><span>🍲 SOPA
+                    DE COSTELA</span><span>🍠 CUSCUZ RECHEADO</span><span>🫐 AÇAÍ PREMIUM</span><span>🥤
+                    REFRIGERANTES</span><span>🍟 BATATA FRITA</span>
+            </div>
+        </div>
+
+        <!-- DESTAQUES -->
+        <section class="destaques">
+            <div class="destaques-grid reveal">
+                <div class="destaque-card" onclick="filterAndScroll('lanches')">
+                    <div class="destaque-icon">🌭</div>
+                    <h3>Cachorro Quente</h3>
+                    <p>Com carne de sol, frango e a moda antiga!</p>
+                </div>
+                <div class="destaque-card" onclick="filterAndScroll('lanches')">
+                    <div class="destaque-icon">🥪</div>
+                    <h3>Bauru Artesanal</h3>
+                    <p>O famoso bauru especial com queijo derretido</p>
+                </div>
+                <div class="destaque-card" onclick="filterAndScroll('pasteis')">
+                    <div class="destaque-icon">🥟</div>
+                    <h3>Pastel da Casa</h3>
+                    <p>Recheios variados e massa crocante</p>
+                </div>
+                <div class="destaque-card" onclick="filterAndScroll('acai')">
+                    <div class="destaque-icon">🫐</div>
+                    <h3>Açaí Premium</h3>
+                    <p>Até 6 opções de recheio no quilo!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDÁPIO -->
+        <section class="cardapio" id="cardapio">
+            <div class="section-header reveal">
+                <h2>NOSSO CARDÁPIO</h2>
+                <div class="line"></div>
+                <p>Delícias preparadas com carinho para você</p>
+            </div>
+
+            <div class="menu-tabs reveal">
+                <button class="tab-btn active" onclick="filterMenu('todos', this)">Todos</button>
+                <button class="tab-btn" onclick="filterMenu('lanches', this)">Lanches</button>
+                <button class="tab-btn" onclick="filterMenu('pasteis', this)">Pastéis</button>
+                <button class="tab-btn" onclick="filterMenu('tapiocas', this)">Tapiocas</button>
+                <button class="tab-btn" onclick="filterMenu('sopas', this)">Sopas e Cuscuz</button>
+                <button class="tab-btn" onclick="filterMenu('acompanhamentos', this)">Acompanhamentos</button>
+                <button class="tab-btn" onclick="filterMenu('bebidas', this)">Bebidas</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid"></div>
+        </section>
+
+        <!-- AÇAÍ -->
+        <section class="acai-section" id="acai">
+            <div class="section-header reveal">
+                <h2>AÇAÍ PREMIUM</h2>
+                <div class="line"></div>
+                <p>O melhor açaí da região com recheios incríveis!</p>
+            </div>
+
+            <div class="acai-grid reveal">
+                <div class="acai-card" onclick="addAcaiToCart('Açaí 200ml', 8.00)">
+                    <div class="size">200ml</div>
+                    <div class="opcoes">3 opções de recheio</div>
+                    <div class="price">R$ 8,00</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
+                </div>
+                <div class="acai-card" onclick="addAcaiToCart('Açaí 300ml', 10.00)">
+                    <div class="size">300ml</div>
+                    <div class="opcoes">4 opções de recheio</div>
+                    <div class="price">R$ 10,00</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
+                </div>
+                <div class="acai-card" onclick="addAcaiToCart('Açaí 500ml', 15.00)">
+                    <div class="size">500ml</div>
+                    <div class="opcoes">6 opções de recheio</div>
+                    <div class="price">R$ 15,00</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
+                </div>
+                <div class="acai-card" style="border-color: var(--amarelo);"
+                    onclick="addAcaiToCart('Açaí no Quilo', 39.90)">
+                    <div class="size">1 KG</div>
+                    <div class="opcoes">6 opções de recheio</div>
+                    <div class="price" style="color: var(--amarelo); font-size: 2.5rem;">R$ 39,90</div>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">⭐ Melhor Custo-Benefício</div>
+                    <button class="add-acai" style="margin-top: 1rem;"><i class="fas fa-plus"></i> Adicionar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section class="depoimentos" id="depoimentos">
+            <div class="section-header reveal">
+                <h2>O QUE DIZEM NOSSOS CLIENTES</h2>
+                <div class="line"></div>
+                <p>Experiências reais de quem já provou nossas delícias</p>
+            </div>
+
+            <div class="reviews-grid reveal">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"O cachorro quente do Edu é simplesmente o melhor da cidade! A carne de sol
+                        dá um sabor único. Já virou tradição todo final de semana!"</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Cliente"
+                            class="reviewer-img">
+                        <div class="reviewer-info">
+                            <h5>Maria Silva</h5>
+                            <span>Cliente fiel desde 2020</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"O açaí de 1kg é sensacional! Muito recheio e o preço é ótimo. Minha família
+                        adora! O pastel da casa também é incrível, super recheado."</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Cliente"
+                            class="reviewer-img">
+                        <div class="reviewer-info">
+                            <h5>João Pedro</h5>
+                            <span>Cliente desde 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"A sopa de charque é perfeita para os dias frios! E o cuscuz recheado com
+                        café da manhã é uma combinação divina. Atendimento nota 10!"</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Cliente"
+                            class="reviewer-img">
+                        <div class="reviewer-info">
+                            <h5>Ana Beatriz</h5>
+                            <span>Cliente desde 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="contato" id="contato">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><i class="fas fa-hamburger"></i>EDU LANCHES</a>
+                    <p>A lanchonete que conquista corações através do sabor autêntico. Cachorro quente, bauru, pastéis,
+                        tapiocas, sopas, cuscuz e o melhor açaí da região!</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/edulanchesss" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <!--<a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>-->
+                        <a href="https://wa.me/5584996722829" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Cardápio</h4>
+                    <ul>
+                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Lanches</a></li>
+                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Pastéis</a></li>
+                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Tapiocas</a></li>
+                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Sopas e Cuscuz</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Retirada no Local</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Encomendas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <p><i class="fab fa-whatsapp"></i> (84) 99672-2829</p>
+                        <p><i class="fab fa-instagram"></i> @edulanchesss</p>
+                        <p><i class="fas fa-clock"></i> Todos os dias</p>
+                        <p><i class="fas fa-motorcycle"></i> Delivery disponível</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Edu Lanches - Lanchonete e Açaiteria. Todos os direitos reservados. Feito com ❤️ e muito
+                    sabor.</p>
+                <p>Desenvolvido por <a href="https://wa.me/5584996970693" target="_blank" rel="noopener"
+                        style="color: #ffffff; text-decoration: none;">Johny Santos</a></p>
+            </div>
+        </footer>
+
+        <!-- WHATSAPP FLOAT -->
+        <a href="https://wa.me/5584996722829" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-tooltip">Peça pelo WhatsApp!</span>
+        </a>
+
+        <!-- BOTÃO FLUTUANTE DO CARRINHO (Aparece só com itens) -->
+        <button class="floating-cart-btn" id="floatingCartBtn" onclick="toggleCart()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="floating-cart-badge" id="floatingCartBadge">0</span>
+        </button>
+
+        <!-- CARRINHO SIDEBAR -->
+        <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> SEU PEDIDO</h3>
+                <button class="close-cart" onclick="toggleCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Seu carrinho está vazio</p>
+                    <span style="font-size: 0.85rem; color: var(--laranja-claro);">Adicione itens deliciosos!</span>
+                </div>
+            </div>
+
+            <div class="delivery-section" style="display: none;">
+                <div class="delivery-title"><i class="fas fa-motorcycle"></i> Como deseja receber?</div>
+                <div class="delivery-options">
+                    <div class="delivery-option selected" onclick="selectDelivery('delivery', this)">
+                        <i class="fas fa-motorcycle"></i>
+                        <div class="delivery-info">
+                            <strong>Delivery</strong>
+                            <span>Receba em casa</span>
+                        </div>
+                        <div class="delivery-price" id="deliveryPriceDisplay">R$ 5,00</div>
+                    </div>
+                    <div class="delivery-option" onclick="selectDelivery('pickup', this)">
+                        <i class="fas fa-store"></i>
+                        <div class="delivery-info">
+                            <strong>Retirar no Local</strong>
+                            <span>Busque seu pedido</span>
+                        </div>
+                        <div class="delivery-price free">GRÁTIS</div>
+                    </div>
+                    <div class="delivery-option" onclick="selectDelivery('dinein', this)">
+                        <i class="fas fa-utensils"></i>
+                        <div class="delivery-info">
+                            <strong>Comer no Local</strong>
+                            <span>Mesa reservada</span>
+                        </div>
+                        <div class="delivery-price free">GRÁTIS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-footer cart-totals" style="display: none;">
+                <div class="cart-totals">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="total-row" id="deliveryRow">
+                        <span>Taxa de entrega</span>
+                        <span id="deliveryFee">R$ 5,00</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>TOTAL</span>
+                        <span id="totalPrice">R$ 0,00</span>
+                    </div>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
+                    <i class="fab fa-whatsapp"></i> Finalizar Pedido
+                </button>
+            </div>
+        </div>
+
+        <!-- TOAST -->
+        <div class="toast" id="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMsg">Item adicionado!</span>
+        </div>
+
+        <!-- Seu arquivo JavaScript -->
+        <script src="script.js"></script>
+    </body>
+
+</html>

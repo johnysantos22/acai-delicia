@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel do Entregador - Edu Lanches</title>
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                text-align: center;
+                padding: 50px 20px;
+                background: #0F0F1A;
+                color: white;
+            }
+
+            input {
+                padding: 15px;
+                font-size: 1.2rem;
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                border: 2px solid #FF8C00;
+                text-align: center;
+            }
+
+            button {
+                padding: 20px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+                border: none;
+                font-weight: bold;
+                width: 100%;
+                max-width: 300px;
+                margin: 10px;
+                cursor: pointer;
+            }
+
+            #btnIniciar {
+                background: #25D366;
+                color: white;
+            }
+
+            #btnParar {
+                background: #C41E3A;
+                color: white;
+                display: none;
+            }
+
+            #status {
+                margin-top: 20px;
+                color: #FFB347;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h2>📍 GPS do Motoqueiro</h2>
+        <p>Edu Lanches - Delivery</p>
+
+        <input type="text" id="idPedido" placeholder="Nº do Pedido (Ex: 1042)">
+
+        <button id="btnIniciar">Iniciar Rota</button>
+        <button id="btnParar">Finalizar Entrega</button>
+        <div id="status">Aguardando...</div>
+
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+        <script>
+            const firebaseConfig = {
+                // COLOQUE SUAS CREDENCIAIS AQUI
+                apiKey: "SUA_API_KEY",
+                authDomain: "SEU_PROJETO.firebaseapp.com",
+                databaseURL: "https://SEU_PROJETO-default-rtdb.firebaseio.com",
+                projectId: "SEU_PROJETO",
+                storageBucket: "SEU_PROJETO.appspot.com",
+                messagingSenderId: "123456789",
+                appId: "SEU_APP_ID"
+            };
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.database();
+
+            let watchId;
+
+            document.getElementById('btnIniciar').addEventListener('click', () => {
+                const pedidoDigitado = document.getElementById('idPedido').value.trim();
+
+                if (!pedidoDigitado) {
+                    alert('Digite o número do pedido antes de iniciar!');
+                    return;
+                }
+
+                if ("geolocation" in navigator) {
+                    document.getElementById('status').innerText = "Conectando ao satélite...";
+
+                    watchId = navigator.geolocation.watchPosition((position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+
+                        // Pega o texto "1042, 1043", separa pela vírgula e limpa os espaços
+                        const listaPedidos = pedidoDigitado.split(',').map(id => id.trim());
+
+                        // Salva a mesma coordenada para CADA pedido individualmente
+                        listaPedidos.forEach(idPedido => {
+                            if (idPedido !== "") {
+                                db.ref('rastreio/' + idPedido).set({
+                                    lat: lat,
+                                    lng: lng,
+                                    timestamp: Date.now()
+                                });
+                            }
+                        });
+
+                        document.getElementById('status').innerText = `Transmitindo rota para: ${pedidoDigitado} 🟢`;
+                        document.getElementById('btnIniciar').style.display = 'none';
+                        document.getElementById('idPedido').style.display = 'none';
+                        document.getElementById('btnParar').style.display = 'inline-block';
+
+                    }, (error) => {
+                        document.getElementById('status').innerText = "Erro no GPS. Verifique se a localização está ativada.";
+                    }, { enableHighAccuracy: true, maximumAge: 0 });
+                }
+            });
+
+            document.getElementById('btnParar').addEventListener('click', () => {
+                const pedidoDigitado = document.getElementById('idPedido').value;
+                const listaPedidos = pedidoDigitado.split(',').map(id => id.trim());
+
+                navigator.geolocation.clearWatch(watchId); // Desliga o GPS do celular
+
+                // Apaga todos os pedidos do Firebase
+                listaPedidos.forEach(idPedido => {
+                    if (idPedido !== "") {
+                        db.ref('rastreio/' + idPedido).remove();
+                    }
+                });
+
+                document.getElementById('status').innerText = "Entrega finalizada! 🔴";
+                document.getElementById('btnIniciar').style.display = 'inline-block';
+                document.getElementById('idPedido').style.display = 'inline-block';
+                document.getElementById('idPedido').value = ''; // Limpa o campo
+                document.getElementById('btnParar').style.display = 'none';
+            });
+        </script>
+    </body>
+
+</html>
