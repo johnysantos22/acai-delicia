@@ -7,8 +7,26 @@ const WPP_NUMBER = "5584992061776";
 // Aqui estão os adicionais com o preço de R$ 2,50 que você pediu
 const ingredientes = {
     frutas: ["Morango", "Banana", "Kiwi", "Manga", "Uva"],
-    acompanhamentos: ["Leite Ninho", "Paçoca", "Granola", "Amendoim", "Chocoball", "Sucrilhos", "Ovomaltine"],
-    caldas: ["Leite Condensado", "Morango", "Chocolate", "Maracujá", "Mel"],
+
+    acompanhamentos: [
+        "Leite Ninho",
+        "Paçoca",
+        "Granola",
+        "Amendoim",
+        "Chocoball",
+        "Farinha Láctea", // Substituído Sucrilhos por Farinha Láctea
+        "Ovomaltine",
+        "Castanha",
+        "Coco Ralado",
+        "Confete"
+    ],
+
+    caldas: [
+        "Leite Condensado",
+        "Morango",
+        "Chocolate"
+    ],
+
     adicionais: [
         { nome: "Nutella Extra", preco: 2.50 },
         { nome: "Creme de Avelã", preco: 2.50 },
