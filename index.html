@@ -4,33 +4,30 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-        <title>Edu Lanches - Lanchonete e Açaiteria</title>
+        <title>Açaí Delicia - O Melhor Açaí da Região</title>
 
-        <!-- Ícone da Aba do Navegador (Favicon - Emoji) -->
         <link rel="icon"
-            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫐</text></svg>">
 
-        <!-- Fontes e Ícones -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <!-- Seu arquivo CSS -->
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
 
-        <!-- NAVBAR -->
         <nav class="navbar" id="navbar">
-            <a href="#" class="logo"><i class="fas fa-hamburger"></i>EDU LANCHES</a>
+            <a href="#" class="logo">
+                <img src="logo-açai.jpeg" alt="Açaí Delicia26">
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Início</a></li>
-                <li><a href="#cardapio">Cardápio</a></li>
-                <li><a href="#acai">Açaí</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#cardapio">Copos</a></li>
+                <li><a href="#barcas">Barcas</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li>
                     <button class="cart-nav-btn" onclick="toggleCart()">
@@ -43,274 +40,257 @@
             <button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </nav>
 
-        <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-fire"></i> Trabalhamos com Delivery!</div>
-                <h1>EDU <span>LANCHES</span></h1>
-                <div class="hero-subtitle">Lanchonete e Açaiteria</div>
-                <p>O melhor cachorro quente, bauru artesanal, pastéis crocantes e açaí da região! Sabores que conquistam
-                    desde o primeiro pedido.</p>
+                <div class="hero-badge"><i class="fas fa-motorcycle"></i> Entrega Rápida!</div>
+                <h1>AÇAÍ <span>DELICIA</span></h1>
+                <div class="hero-subtitle">Monte do seu jeito</div>
+                <p>O melhor açaí da região, com ingredientes frescos e complementos irresistíveis. Escolha seu tamanho e
+                    monte a combinação perfeita!</p>
                 <div class="hero-buttons">
-                    <a href="#cardapio" class="btn btn-primary"><i class="fas fa-utensils"></i> Ver Cardápio</a>
-                    <a href="https://wa.me/5584996722829" class="btn btn-outline" target="_blank"><i
-                            class="fab fa-whatsapp"></i> Fazer Pedido</a>
+                    <a href="#cardapio" class="btn btn-primary"><i class="fas fa-bowl-food"></i> Montar meu Açaí</a>
+                    <a href="https://wa.me/5584992061776" class="btn btn-outline" target="_blank"><i
+                            class="fab fa-whatsapp"></i> Falar conosco</a>
                 </div>
             </div>
         </section>
 
-        <!-- MARQUEE -->
         <div class="marquee-container">
             <div class="marquee">
-                <span>🌭 CACHORRO QUENTE</span><span>🥪 BAURU ESPECIAL</span><span>🥟 PASTEL DA CASA</span><span>🍲 SOPA
-                    DE COSTELA</span><span>🍠 CUSCUZ RECHEADO</span><span>🫐 AÇAÍ PREMIUM</span><span>🥤
-                    REFRIGERANTES</span><span>🍟 BATATA FRITA</span>
-                <span>🌭 CACHORRO QUENTE</span><span>🥪 BAURU ESPECIAL</span><span>🥟 PASTEL DA CASA</span><span>🍲 SOPA
-                    DE COSTELA</span><span>🍠 CUSCUZ RECHEADO</span><span>🫐 AÇAÍ PREMIUM</span><span>🥤
-                    REFRIGERANTES</span><span>🍟 BATATA FRITA</span>
+                <span>🫐 AÇAÍ PREMIUM</span><span>🍓 MORANGO FRESCO</span><span>🥝 KIWI</span><span>🍫
+                    NUTELLA</span><span>🥜 PAÇOCA</span><span>🥛 LEITE CONDENSADO</span><span>🍦 CREME DE NINHO</span>
+                <span>🫐 AÇAÍ PREMIUM</span><span>🍓 MORANGO FRESCO</span><span>🥝 KIWI</span><span>🍫
+                    NUTELLA</span><span>🥜 PAÇOCA</span><span>🥛 LEITE CONDENSADO</span><span>🍦 CREME DE NINHO</span>
             </div>
         </div>
 
-        <!-- DESTAQUES -->
-        <section class="destaques">
-            <div class="destaques-grid reveal">
-                <div class="destaque-card" onclick="filterAndScroll('lanches')">
-                    <div class="destaque-icon">🌭</div>
-                    <h3>Cachorro Quente</h3>
-                    <p>Com carne de sol, frango e a moda antiga!</p>
-                </div>
-                <div class="destaque-card" onclick="filterAndScroll('lanches')">
-                    <div class="destaque-icon">🥪</div>
-                    <h3>Bauru Artesanal</h3>
-                    <p>O famoso bauru especial com queijo derretido</p>
-                </div>
-                <div class="destaque-card" onclick="filterAndScroll('pasteis')">
-                    <div class="destaque-icon">🥟</div>
-                    <h3>Pastel da Casa</h3>
-                    <p>Recheios variados e massa crocante</p>
-                </div>
-                <div class="destaque-card" onclick="filterAndScroll('acai')">
-                    <div class="destaque-icon">🫐</div>
-                    <h3>Açaí Premium</h3>
-                    <p>Até 6 opções de recheio no quilo!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CARDÁPIO -->
-        <section class="cardapio" id="cardapio">
-            <div class="section-header reveal">
-                <h2>NOSSO CARDÁPIO</h2>
+        <section class="acai-section" id="cardapio">
+            <div class="section-header">
+                <h2>ESCOLHA SEU COPO</h2>
                 <div class="line"></div>
-                <p>Delícias preparadas com carinho para você</p>
+                <p>Selecione o tamanho e personalize com seus complementos</p>
             </div>
 
-            <div class="menu-tabs reveal">
-                <button class="tab-btn active" onclick="filterMenu('todos', this)">Todos</button>
-                <button class="tab-btn" onclick="filterMenu('lanches', this)">Lanches</button>
-                <button class="tab-btn" onclick="filterMenu('pasteis', this)">Pastéis</button>
-                <button class="tab-btn" onclick="filterMenu('tapiocas', this)">Tapiocas</button>
-                <button class="tab-btn" onclick="filterMenu('sopas', this)">Sopas e Cuscuz</button>
-                <button class="tab-btn" onclick="filterMenu('acompanhamentos', this)">Acompanhamentos</button>
-                <button class="tab-btn" onclick="filterMenu('bebidas', this)">Bebidas</button>
-            </div>
-
-            <div class="menu-grid" id="menuGrid"></div>
-        </section>
-
-        <!-- AÇAÍ -->
-        <section class="acai-section" id="acai">
-            <div class="section-header reveal">
-                <h2>AÇAÍ PREMIUM</h2>
-                <div class="line"></div>
-                <p>O melhor açaí da região com recheios incríveis!</p>
-            </div>
-
-            <div class="acai-grid reveal">
-                <div class="acai-card" onclick="addAcaiToCart('Açaí 200ml', 8.00)">
-                    <div class="size">200ml</div>
-                    <div class="opcoes">3 opções de recheio</div>
-                    <div class="price">R$ 8,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
-                </div>
-                <div class="acai-card" onclick="addAcaiToCart('Açaí 300ml', 10.00)">
+            <div class="acai-grid">
+                <div class="acai-card" onclick="openAcaiModal('Copo 300ml', 11.00, 3, 1, 1)">
                     <div class="size">300ml</div>
-                    <div class="opcoes">4 opções de recheio</div>
-                    <div class="price">R$ 10,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
+                    <div class="opcoes">3 acomp. + 1 fruta + 1 cobertura</div>
+                    <div class="price">R$ 11,00</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
                 </div>
-                <div class="acai-card" onclick="addAcaiToCart('Açaí 500ml', 15.00)">
-                    <div class="size">500ml</div>
-                    <div class="opcoes">6 opções de recheio</div>
+                <div class="acai-card" onclick="openAcaiModal('Copo 400ml', 15.00, 4, 1, 1)">
+                    <div class="size">400ml</div>
+                    <div class="opcoes">4 acomp. + 1 fruta + 1 cobertura</div>
                     <div class="price">R$ 15,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Adicionar</button>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
                 </div>
-                <div class="acai-card" style="border-color: var(--amarelo);"
-                    onclick="addAcaiToCart('Açaí no Quilo', 39.90)">
-                    <div class="size">1 KG</div>
-                    <div class="opcoes">6 opções de recheio</div>
-                    <div class="price" style="color: var(--amarelo); font-size: 2.5rem;">R$ 39,90</div>
-                    <div style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">⭐ Melhor Custo-Benefício</div>
-                    <button class="add-acai" style="margin-top: 1rem;"><i class="fas fa-plus"></i> Adicionar</button>
+                <div class="acai-card" style="border-color: var(--roxo-destaque);"
+                    onclick="openAcaiModal('Copo 500ml', 18.00, 5, 1, 1)">
+                    <div class="size">500ml</div>
+                    <div class="opcoes">5 acomp. + 1 fruta + 1 cobertura</div>
+                    <div class="price" style="color: var(--roxo-destaque); font-size: 2.5rem;">R$ 18,00</div>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">⭐ O Mais Pedido</div>
+                    <button class="add-acai" style="margin-top: 1rem;"><i class="fas fa-plus"></i> Montar</button>
+                </div>
+                <div class="acai-card" onclick="openAcaiModal('Copo 1 Litro', 28.99, 6, 2, 2)">
+                    <div class="size">1 Litro</div>
+                    <div class="opcoes">6 acomp. + 2 frutas + 2 coberturas</div>
+                    <div class="price">R$ 28,99</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
                 </div>
             </div>
         </section>
 
-        <!-- DEPOIMENTOS -->
-        <section class="depoimentos" id="depoimentos">
-            <div class="section-header reveal">
-                <h2>O QUE DIZEM NOSSOS CLIENTES</h2>
+        <section class="acai-section" id="barcas" style="background-color: var(--fundo-secundario);">
+            <div class="section-header">
+                <h2>BARCAS DE AÇAÍ</h2>
                 <div class="line"></div>
-                <p>Experiências reais de quem já provou nossas delícias</p>
+                <p>Perfeito para dividir com a galera!</p>
             </div>
 
-            <div class="reviews-grid reveal">
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"O cachorro quente do Edu é simplesmente o melhor da cidade! A carne de sol
-                        dá um sabor único. Já virou tradição todo final de semana!"</p>
-                    <div class="reviewer">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Cliente"
-                            class="reviewer-img">
-                        <div class="reviewer-info">
-                            <h5>Maria Silva</h5>
-                            <span>Cliente fiel desde 2020</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"O açaí de 1kg é sensacional! Muito recheio e o preço é ótimo. Minha família
-                        adora! O pastel da casa também é incrível, super recheado."</p>
-                    <div class="reviewer">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Cliente"
-                            class="reviewer-img">
-                        <div class="reviewer-info">
-                            <h5>João Pedro</h5>
-                            <span>Cliente desde 2022</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="review-text">"A sopa de charque é perfeita para os dias frios! E o cuscuz recheado com
-                        café da manhã é uma combinação divina. Atendimento nota 10!"</p>
-                    <div class="reviewer">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Cliente"
-                            class="reviewer-img">
-                        <div class="reviewer-info">
-                            <h5>Ana Beatriz</h5>
-                            <span>Cliente desde 2023</span>
-                        </div>
-                    </div>
+            <div class="acai-grid">
+                <div class="acai-card" onclick="openAcaiModal('Barca 1 Litro', 36.00, 5, 2, 2)">
+                    <div class="size">Barca 1L</div>
+                    <div class="opcoes">5 acomp. + 2 frutas + 2 coberturas</div>
+                    <div class="price">R$ 36,00</div>
+                    <button class="add-acai"><i class="fas fa-plus"></i> Montar Barca</button>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <div class="acai-modal-overlay" id="acaiModal">
+            <div class="acai-modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Montando Copo</h3>
+                    <button class="close-modal" onclick="closeAcaiModal()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+                <div class="modal-body" id="adicionaisBody"
+                    style="padding-top:0; border-top: 2px dashed #eee; margin-top: -10px;">
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-price-total">Total Copo: <span id="modalPrice">R$ 0,00</span></div>
+                    <button class="btn btn-primary" onclick="addCustomAcaiToCart()">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
         <footer class="contato" id="contato">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo"><i class="fas fa-hamburger"></i>EDU LANCHES</a>
-                    <p>A lanchonete que conquista corações através do sabor autêntico. Cachorro quente, bauru, pastéis,
-                        tapiocas, sopas, cuscuz e o melhor açaí da região!</p>
+                    <a href="#" class="logo">
+                        <img src="logo-açai.jpeg" alt="Açaí Delicia26">
+                    </a>
+                    <p>Qualidade, sabor e muito recheio. O açaí que você sempre sonhou, montado do seu jeito!</p>
                     <div class="social-links">
-                        <a href="https://instagram.com/edulanchesss" target="_blank"><i
+                        <a href="https://instagram.com/acai_delicia26" target="_blank"><i
                                 class="fab fa-instagram"></i></a>
-                        <!--<a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>-->
-                        <a href="https://wa.me/5584996722829" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5584992061776" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Cardápio</h4>
-                    <ul>
-                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Lanches</a></li>
-                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Pastéis</a></li>
-                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Tapiocas</a></li>
-                        <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Sopas e Cuscuz</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Delivery</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Retirada no Local</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Encomendas</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Contato</h4>
+                    <h4 style="color: var(--verde-destaque); margin-bottom: 15px;">Contato</h4>
                     <div class="contact-info">
-                        <p><i class="fab fa-whatsapp"></i> (84) 99672-2829</p>
-                        <p><i class="fab fa-instagram"></i> @edulanchesss</p>
-                        <p><i class="fas fa-clock"></i> Todos os dias</p>
-                        <p><i class="fas fa-motorcycle"></i> Delivery disponível</p>
+                        <p style="color:#aaa;"><i class="fab fa-whatsapp"></i> (84) 99206-1776</p>
+                        <p style="color:#aaa;"><i class="fab fa-instagram"></i> @acai_delicia26</p>
+                        <p style="color:#aaa;"><i class="fas fa-motorcycle"></i> Delivery ativo</p>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>© 2026 Edu Lanches - Lanchonete e Açaiteria. Todos os direitos reservados. Feito com ❤️ e muito
-                    sabor.</p>
-                <p>Desenvolvido por <a href="https://wa.me/5584996970693" target="_blank" rel="noopener"
-                        style="color: #ffffff; text-decoration: none;">Johny Santos</a></p>
+                <p>&copy; 2026 Açaí Delicia26. Todos os direitos reservados.</p>
+                <p class="developer-credit">
+                    Desenvolvido com <i class="fas fa-code"></i> e <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                    por
+                    <a href="https://github.com/johnysantos22" target="_blank" rel="noopener noreferrer"
+                        class="dev-link">
+                        Johny Santos
+                    </a>
+                </p>
             </div>
         </footer>
 
-        <!-- WHATSAPP FLOAT -->
-        <a href="https://wa.me/5584996722829" class="whatsapp-float" target="_blank">
+        <style>
+            .wa-flutuante {
+                position: fixed;
+                bottom: 30px;
+                left: 30px;
+                background: #25D366;
+                color: white;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.2rem;
+                box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+                z-index: 1000;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                animation: pulse-wa 2s infinite;
+            }
+
+            .wa-balao {
+                position: absolute;
+                left: 75px;
+                background: white;
+                color: #25D366;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(-20px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            .wa-balao::before {
+                content: '';
+                position: absolute;
+                left: -6px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+                border-right: 6px solid white;
+            }
+
+            .wa-flutuante:hover {
+                transform: scale(1.05);
+                animation: none;
+            }
+
+            .wa-flutuante:hover .wa-balao {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
+            }
+
+            @keyframes pulse-wa {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+                }
+
+                70% {
+                    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .wa-flutuante {
+                    bottom: 100px;
+                }
+
+                .wa-balao {
+                    display: none;
+                }
+            }
+        </style>
+
+        <a href="https://wa.me/5584992061776" class="wa-flutuante" target="_blank">
             <i class="fab fa-whatsapp"></i>
-            <span class="whatsapp-tooltip">Peça pelo WhatsApp!</span>
+            <span class="wa-balao">Faça seu pedido!</span>
         </a>
 
-        <!-- BOTÃO FLUTUANTE DO CARRINHO (Aparece só com itens) -->
-        <button class="floating-cart-btn" id="floatingCartBtn" onclick="toggleCart()">
+        <button class="mobile-cart-float" id="mobileCartFloat" onclick="toggleCart()">
             <i class="fas fa-shopping-bag"></i>
-            <span class="floating-cart-badge" id="floatingCartBadge">0</span>
+            <span class="mobile-cart-badge" id="mobileCartBadge">0</span>
         </button>
 
-        <!-- CARRINHO SIDEBAR -->
         <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
         <div class="cart-sidebar" id="cartSidebar">
             <div class="cart-header">
                 <h3><i class="fas fa-shopping-bag"></i> SEU PEDIDO</h3>
-                <button class="close-cart" onclick="toggleCart()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
             </div>
 
             <div class="cart-items" id="cartItems">
-                <div class="cart-empty">
-                    <i class="fas fa-shopping-basket"></i>
+                <div class="cart-empty" style="text-align:center; padding: 20px; color:#666;">
+                    <i class="fas fa-shopping-basket" style="font-size: 3rem; margin-bottom:10px; color:#ddd;"></i>
                     <p>Seu carrinho está vazio</p>
-                    <span style="font-size: 0.85rem; color: var(--laranja-claro);">Adicione itens deliciosos!</span>
                 </div>
             </div>
 
-            <div class="delivery-section" style="display: none;">
-                <div class="delivery-title"><i class="fas fa-motorcycle"></i> Como deseja receber?</div>
+            <div class="delivery-section" style="display: none; padding: 20px;">
+                <div class="delivery-title" style="margin-bottom: 10px; font-weight: bold;"><i
+                        class="fas fa-motorcycle"></i> Como deseja receber?</div>
                 <div class="delivery-options">
                     <div class="delivery-option selected" onclick="selectDelivery('delivery', this)">
                         <i class="fas fa-motorcycle"></i>
                         <div class="delivery-info">
                             <strong>Delivery</strong>
-                            <span>Receba em casa</span>
+                            <span style="font-size: 0.8rem; color:#666;">Receba em casa</span>
                         </div>
                         <div class="delivery-price" id="deliveryPriceDisplay">R$ 5,00</div>
                     </div>
@@ -318,35 +298,28 @@
                         <i class="fas fa-store"></i>
                         <div class="delivery-info">
                             <strong>Retirar no Local</strong>
-                            <span>Busque seu pedido</span>
+                            <span style="font-size: 0.8rem; color:#666;">Busque seu pedido</span>
                         </div>
-                        <div class="delivery-price free">GRÁTIS</div>
-                    </div>
-                    <div class="delivery-option" onclick="selectDelivery('dinein', this)">
-                        <i class="fas fa-utensils"></i>
-                        <div class="delivery-info">
-                            <strong>Comer no Local</strong>
-                            <span>Mesa reservada</span>
-                        </div>
-                        <div class="delivery-price free">GRÁTIS</div>
+                        <div class="delivery-price free" style="color:var(--verde-destaque);">GRÁTIS</div>
                     </div>
                 </div>
             </div>
 
-            <div class="cart-footer cart-totals" style="display: none;">
-                <div class="cart-totals">
-                    <div class="total-row">
-                        <span>Subtotal</span>
-                        <span id="subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="total-row" id="deliveryRow">
-                        <span>Taxa de entrega</span>
-                        <span id="deliveryFee">R$ 5,00</span>
-                    </div>
-                    <div class="total-row final">
-                        <span>TOTAL</span>
-                        <span id="totalPrice">R$ 0,00</span>
-                    </div>
+            <div class="cart-totals"
+                style="display: none; padding: 20px; border-top: 1px solid #eee; background: #fafafa;">
+                <div class="total-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="total-row" id="deliveryRow"
+                    style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Taxa de entrega</span>
+                    <span id="deliveryFee">R$ 5,00</span>
+                </div>
+                <div class="total-row final"
+                    style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; color: var(--roxo-principal); margin-top: 10px; border-top: 2px solid #ddd; padding-top: 10px;">
+                    <span>TOTAL</span>
+                    <span id="totalPrice">R$ 0,00</span>
                 </div>
                 <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
                     <i class="fab fa-whatsapp"></i> Finalizar Pedido
@@ -354,13 +327,11 @@
             </div>
         </div>
 
-        <!-- TOAST -->
         <div class="toast" id="toast">
             <i class="fas fa-check-circle"></i>
-            <span id="toastMsg">Item adicionado!</span>
+            <span id="toastMsg">Açaí adicionado!</span>
         </div>
 
-        <!-- Seu arquivo JavaScript -->
         <script src="script.js"></script>
     </body>
 

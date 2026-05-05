@@ -1,313 +1,259 @@
-// ==================== MENU DATA ====================
-const menuItems = [
-    { id: 1, name: "Cachorro Quente à Moda Antiga", price: 7.00, category: "lanches", desc: "Pão, carne moída, salsicha, frango, batata palha, vinagrete, milho verde e ervilha", icon: "🌭", badge: "Mais Vendido", img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600" },
-    { id: 2, name: "Cachorro Quente do Edu", price: 9.00, category: "lanches", desc: "Pão, carne de sol ou carne de sol na nata, salsicha, frango, batata palha, vinagrete, milho verde e ervilha", icon: "🌭", badge: "Especial", img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600" },
-    { id: 3, name: "Bauru Especial", price: 10.00, category: "lanches", desc: "Pão francês, queijo, presunto, tomate e orégano. Um clássico irresistível!", icon: "🥪", badge: null, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" },
-    { id: 4, name: "X-Frango", price: 13.00, category: "lanches", desc: "Hambúrguer de frango grelhado com queijo, alface, tomate e maionese especial.", icon: "🍔", badge: "Novo", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" },
-    { id: 5, name: "Bauru Artesanal", price: 17.99, category: "lanches", desc: "Pão artesanal, carne suculenta, queijo derretido, cebola caramelizada e molho especial.", icon: "🥪", badge: "Premium", img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600" },
-    { id: 6, name: "Pastéis (unidade)", price: 10.00, category: "pasteis", desc: "Frango c/ queijo, frango, frango c/ catupiry ou cheddar, pizza, queijo, carne de sol, nordestino", icon: "🥟", badge: "Mais Vendido", img: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=600" },
-    { id: 7, name: "Pastel da Casa", price: 13.00, category: "pasteis", desc: "Carne, frango, vinagrete, milho, ervilha, queijo e presunto. O pastel mais completo!", icon: "🥟", badge: "Especial", img: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=600" },
-    { id: 8, name: "Tapioca Recheada", price: 10.00, category: "tapiocas", desc: "Frango desfiado, frango com catupiry ou carne de sol. Tapioca fresquinha e saborosa!", icon: "🫓", badge: null, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600" },
-    { id: 9, name: "Tapioca da Casa", price: 13.00, category: "tapiocas", desc: "Carne, frango, vinagrete, milho, ervilha, queijo e presunto. A mais completa!", icon: "🫓", badge: "Especial", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600" },
-    { id: 10, name: "Sopa de Costela", price: 10.00, category: "sopas", desc: "Costela desfiada com legumes frescos em caldo temperado. Conforto em cada colherada!", icon: "🍲", badge: null, img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600" },
-    { id: 11, name: "Sopa de Charque", price: 12.00, category: "sopas", desc: "Charque desfiado com mandioca e temperos nordestinos. Sabor autêntico!", icon: "🍲", badge: null, img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600" },
-    { id: 12, name: "Cuscuz Recheado + Café", price: 15.00, category: "sopas", desc: "Carne ou frango, vinagrete, milho, ervilha, queijo + café quentinho!", icon: "🥘", badge: "Combo", img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600" },
-    { id: 13, name: "Cuscuz Recheado", price: 13.00, category: "sopas", desc: "Carne ou frango, vinagrete, milho, ervilha, queijo. O clássico cuscuz nordestino!", icon: "🥘", badge: null, img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600" },
-    { id: 14, name: "Batata Frita Pequena", price: 8.00, category: "acompanhamentos", desc: "Batatas crocantes e douradas. O acompanhamento perfeito!", icon: "🍟", badge: null, img: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=600" },
-    { id: 15, name: "Batata Frita Grande", price: 12.00, category: "acompanhamentos", desc: "Porção grande de batatas crocantes. Ideal para dividir!", icon: "🍟", badge: "Família", img: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=600" },
-    { id: 16, name: "Coca Cola Litro", price: 10.00, category: "bebidas", desc: "Coca Cola ou Coca Cola Zero. Refrescante e geladinha!", icon: "🥤", badge: null, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600" },
-    { id: 17, name: "Refrigerante Litro", price: 8.00, category: "bebidas", desc: "Guaraná, Sukita Laranja, Pepsi. Variedade para todos os gostos!", icon: "🥤", badge: null, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600" },
-    { id: 18, name: "Refrigerante Lata", price: 5.00, category: "bebidas", desc: "Guaraná Kuat, Fanta Laranja, Pepsi, Coca Cola. Lata geladinha!", icon: "🥤", badge: null, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600" },
-    { id: 19, name: "Suco 300ml", price: 4.00, category: "bebidas", desc: "Goiaba, acerola, abacaxi, manga, cajú, cajá. Sucos naturais!", icon: "🧃", badge: null, img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600" },
-    { id: 20, name: "Suco 2 Sabores 300ml", price: 5.00, category: "bebidas", desc: "Morango ou maracujá. Dois sucos pelo preço de um!", icon: "🧃", badge: null, img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600" },
-    { id: 21, name: "Vitamina", price: 6.00, category: "bebidas", desc: "Goiaba, acerola, abacaxi, manga, maracujá, cajú, cajá, laranja, morango", icon: "🥛", badge: null, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600" },
-    { id: 22, name: "Vitamina de Coco Verde", price: 7.00, category: "bebidas", desc: "Água de coco natural com polpa de coco. Hidratação tropical!", icon: "🥥", badge: "Premium", img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600" },
-    { id: 23, name: "Água 500ml", price: 2.50, category: "bebidas", desc: "Água mineral natural. Sempre gelada!", icon: "💧", badge: null, img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600" },
-    { id: 24, name: "Água c/ Gás 500ml", price: 3.50, category: "bebidas", desc: "Água mineral com gás. Perfeita para acompanhar!", icon: "💧", badge: null, img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600" }
-];
-
-// ==================== STATE ====================
+// ==========================================================================
+// CONFIGURAÇÕES GERAIS
+// ==========================================================================
 let cart = [];
-let deliveryType = 'delivery';
-const DELIVERY_FEE = 5.00;
+const WPP_NUMBER = "5584992061776";
 
-// ==================== RENDER MENU ====================
-function renderMenu(category = 'todos') {
-    const container = document.getElementById('menuGrid');
-    container.innerHTML = '';
+// Aqui estão os adicionais com o preço de R$ 2,50 que você pediu
+const ingredientes = {
+    frutas: ["Morango", "Banana", "Kiwi", "Manga", "Uva"],
+    acompanhamentos: ["Leite Ninho", "Paçoca", "Granola", "Amendoim", "Chocoball", "Sucrilhos", "Ovomaltine"],
+    caldas: ["Leite Condensado", "Morango", "Chocolate", "Maracujá", "Mel"],
+    adicionais: [
+        { nome: "Nutella Extra", preco: 2.50 },
+        { nome: "Creme de Avelã", preco: 2.50 },
+        { nome: "Gotas de Chocolate", preco: 2.50 },
+        { nome: "Morango Extra", preco: 2.50 },
+        { nome: "Kiwi Extra", preco: 2.50 }
+    ]
+};
 
-    const filtered = category === 'todos' ? menuItems : menuItems.filter(item => item.category === category);
+let currentAcai = null;
+let taxaEntrega = 5.00;
+let tipoEntrega = 'delivery';
 
-    filtered.forEach(item => {
-        const badgeClass = item.badge === 'Premium' || item.badge === 'Especial' || item.badge === 'Combo' ? 'destaque' : '';
-        const badgeHtml = item.badge ? `<span class="menu-badge ${badgeClass}">${item.badge}</span>` : '';
-
-        const card = document.createElement('div');
-        card.className = 'menu-item';
-        card.dataset.category = item.category;
-        card.innerHTML = `
-        <div class="menu-item-img">
-            <img src="${item.img}" alt="${item.name}" loading="lazy">
-            ${badgeHtml}
-        </div>
-        <div class="menu-item-content">
-            <div class="menu-item-header">
-                <h4>${item.name}</h4>
-                <span class="price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
-            </div>
-            <p class="menu-desc">${item.desc}</p>
-            <button type="button" class="add-to-cart" onclick="addToCart(${item.id}, this)">
-                <i class="fas fa-plus"></i> Adicionar ao Pedido
-            </button>
-        </div>
-    `;
-        container.appendChild(card);
-    });
-}
-
-// ==================== FILTER MENU ====================
-function filterMenu(category, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderMenu(category);
-}
-
-function filterAndScroll(category) {
-    const tabs = document.querySelectorAll('.tab-btn');
-    tabs.forEach(tab => {
-        if (tab.textContent.toLowerCase().includes(category) ||
-            (category === 'acai' && tab.textContent.includes('Açaí'))) {
-            tab.click();
-        }
-    });
-    document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
-}
-
-// ==================== CART FUNCTIONS ====================
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-function addToCart(id, btn) {
-    const item = menuItems.find(i => i.id === id);
-    const existing = cart.find(i => i.id === id);
-
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({ ...item, qty: 1 });
-    }
-
-    updateCart();
-    showToast(`${item.name} adicionado!`);
-
-    if (btn) {
-        btn.classList.add('added');
-        btn.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
-        setTimeout(() => {
-            btn.classList.remove('added');
-            btn.innerHTML = '<i class="fas fa-plus"></i> Adicionar ao Pedido';
-        }, 1500);
-    }
-}
-
-function addAcaiToCart(name, price) {
-    const existing = cart.find(i => i.name === name);
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({ id: Date.now(), name: name, price: price, qty: 1, icon: '🫐' });
-    }
-    updateCart();
-    showToast(`${name} adicionado!`);
-}
-
-function changeQty(id, delta) {
-    const item = cart.find(i => i.id === id);
-    if (item) {
-        item.qty += delta;
-        if (item.qty <= 0) {
-            cart = cart.filter(i => i.id !== id);
-        }
-        updateCart();
-    }
-}
-
-function removeItem(id) {
-    cart = cart.filter(i => i.id !== id);
-    updateCart();
-    showToast('Item removido');
-}
-
-// ==================== UPDATE CART ====================
-function updateCart() {
-    const cartItems = document.getElementById('cartItems');
-    const cartBadge = document.getElementById('cartBadge');
-    const floatingCartBtn = document.getElementById('floatingCartBtn');
-    const floatingCartBadge = document.getElementById('floatingCartBadge');
-    const subtotalEl = document.getElementById('subtotal');
-    const totalEl = document.getElementById('totalPrice');
-    const deliveryRow = document.getElementById('deliveryRow');
-    const deliveryFeeEl = document.getElementById('deliveryFee');
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    const deliverySection = document.querySelector('.delivery-section');
-    const cartTotals = document.querySelector('.cart-totals');
-
-    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-
-    cartBadge.textContent = totalItems;
-    if (floatingCartBadge) floatingCartBadge.textContent = totalItems;
-
-    if (cart.length === 0) {
-        if (floatingCartBtn) floatingCartBtn.classList.remove('show');
-
-        cartItems.innerHTML = `
-        <div class="cart-empty">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Seu carrinho está vazio</p>
-            <span style="font-size: 0.85rem; color: var(--laranja-claro);">Adicione itens deliciosos!</span>
-        </div>
-        `;
-        checkoutBtn.disabled = true;
-
-        if (deliverySection) deliverySection.style.display = 'none';
-        if (cartTotals) cartTotals.style.display = 'none';
-
-    } else {
-        if (floatingCartBtn) floatingCartBtn.classList.add('show');
-
-        cartItems.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <div class="cart-item-header">
-                <span class="cart-item-name">${item.icon || '🍽️'} ${item.name}</span>
-                <span class="cart-item-price">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
-            </div>
-            <div class="cart-item-controls">
-                <button class="qty-btn" onclick="changeQty(${item.id}, -1)">
-                    <i class="fas fa-minus"></i>
-                </button>
-                <span class="cart-item-qty">${item.qty}</span>
-                <button class="qty-btn" onclick="changeQty(${item.id}, 1)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                <button class="remove-btn" onclick="removeItem(${item.id})">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        </div>
-        `).join('');
-
-        checkoutBtn.disabled = false;
-
-        if (deliverySection) deliverySection.style.display = 'block';
-        if (cartTotals) cartTotals.style.display = 'block';
-    }
-
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    const deliveryFee = (deliveryType === 'delivery' && cart.length > 0) ? DELIVERY_FEE : 0;
-    const total = subtotal + deliveryFee;
-
-    subtotalEl.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-
-    if (deliveryType === 'delivery' && cart.length > 0) {
-        deliveryRow.style.display = 'flex';
-        deliveryFeeEl.textContent = `R$ ${deliveryFee.toFixed(2).replace('.', ',')}`;
-    } else {
-        deliveryRow.style.display = 'none';
-    }
-
-    totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-}
-
-// ==================== DELIVERY OPTIONS ====================
-function selectDelivery(type, el) {
-    deliveryType = type;
-    document.querySelectorAll('.delivery-option').forEach(opt => opt.classList.remove('selected'));
-    el.classList.add('selected');
-    updateCart();
-}
-
-// ==================== TOGGLE CART ====================
-function toggleCart() {
-    document.getElementById('cartOverlay').classList.toggle('active');
-    document.getElementById('cartSidebar').classList.toggle('active');
-}
-
-// ==================== TOAST ====================
-function showToast(msg) {
-    const toast = document.getElementById('toast');
-    document.getElementById('toastMsg').textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-}
-
-// ==================== CHECKOUT ====================
-function checkout() {
-    if (cart.length === 0) return;
-
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    const deliveryFee = deliveryType === 'delivery' ? DELIVERY_FEE : 0;
-    const total = subtotal + deliveryFee;
-
-    const deliveryLabels = {
-        delivery: '🛵 Delivery',
-        pickup: '🏪 Retirar no Local',
-        dinein: '🍽️ Comer no Local'
+// ==========================================================================
+// LÓGICA DO MODAL DE MONTAGEM E ADICIONAIS
+// ==========================================================================
+function openAcaiModal(nome, precoBase, maxAcomp, maxFruta, maxCalda) {
+    currentAcai = {
+        nome: nome,
+        precoBase: precoBase,
+        precoAdicionais: 0, // Inicia os custos extras zerados
+        selecionados: { acomp: [], fruta: [], calda: [], adicionaisExtras: [] }
     };
 
-    let msg = `*🍔 NOVO PEDIDO - EDU LANCHES*\n\n`;
-    msg += `*Itens:*\n`;
-    cart.forEach(item => {
-        msg += `• ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}\n`;
-    });
-    msg += `\n*Forma de recebimento:* ${deliveryLabels[deliveryType]}\n`;
-    if (deliveryType === 'delivery') {
-        msg += `*Taxa de entrega:* R$ ${deliveryFee.toFixed(2).replace('.', ',')}\n`;
-    }
-    msg += `\n*Total:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
-    msg += `Por favor, confirmar meu pedido! 🙏`;
+    document.getElementById('modalTitle').innerText = `Montando ${nome}`;
+    atualizarPrecoModal();
 
-    const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/5584996722829?text=${encoded}`, '_blank');
+    document.getElementById('modalBody').innerHTML = '';
+    document.getElementById('adicionaisBody').innerHTML = '';
+
+    // Renderiza opções normais (gratuitas dentro do limite)
+    renderOptions('fruta', ingredientes.frutas, maxFruta, 'Frutas Inclusas');
+    renderOptions('acomp', ingredientes.acompanhamentos, maxAcomp, 'Acompanhamentos');
+    renderOptions('calda', ingredientes.caldas, maxCalda, 'Caldas');
+
+    // Renderiza opções pagas (Adicionais)
+    renderAdicionaisPagos();
+
+    document.getElementById('acaiModal').classList.add('active');
 }
 
-// ==================== NAVBAR SCROLL ====================
-window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+function closeAcaiModal() {
+    document.getElementById('acaiModal').classList.remove('active');
+    currentAcai = null;
+}
+
+function atualizarPrecoModal() {
+    const totalCopo = currentAcai.precoBase + currentAcai.precoAdicionais;
+    document.getElementById('modalPrice').innerText = `R$ ${totalCopo.toFixed(2).replace('.', ',')}`;
+}
+
+function renderOptions(categoriaKey, lista, limite, tituloDisplay) {
+    const container = document.getElementById('modalBody');
+    let html = `
+        <div class="option-group">
+            <h4>${tituloDisplay} <span class="option-limit">Escolha até ${limite}</span></h4>
+            ${lista.map(item => `
+                <label class="checkbox-label">
+                    <input type="checkbox" name="${categoriaKey}" value="${item}" onchange="handleSelection(this, '${categoriaKey}', ${limite})">
+                    <span>${item}</span>
+                </label>
+            `).join('')}
+        </div>
+    `;
+    container.innerHTML += html;
+}
+
+function renderAdicionaisPagos() {
+    const container = document.getElementById('adicionaisBody');
+    let html = `
+        <div class="option-group" style="margin-top: 15px;">
+            <h4>Adicionais Extras <span class="option-limit" style="color:var(--verde-destaque)">R$ 2,50 cada</span></h4>
+            ${ingredientes.adicionais.map(item => `
+                <label class="checkbox-label adicional-label">
+                    <input type="checkbox" name="adicional" value="${item.nome}" onchange="handleAdicional(this, ${item.preco})">
+                    <span>${item.nome}</span>
+                    <span class="adicional-preco">+ R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
+                </label>
+            `).join('')}
+        </div>
+    `;
+    container.innerHTML = html;
+}
+
+// Controla os limites dos itens normais
+function handleSelection(checkbox, categoria, limite) {
+    const marcados = document.querySelectorAll(`input[name="${categoria}"]:checked`);
+    currentAcai.selecionados[categoria] = Array.from(marcados).map(cb => cb.value);
+
+    const todosDaCategoria = document.querySelectorAll(`input[name="${categoria}"]`);
+    if (marcados.length >= limite) {
+        todosDaCategoria.forEach(cb => { if (!cb.checked) cb.disabled = true; });
     } else {
-        navbar.classList.remove('scrolled');
+        todosDaCategoria.forEach(cb => cb.disabled = false);
     }
-});
+}
 
-// ==================== SMOOTH SCROLL ====================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+// Controla os itens pagos extras (Soma e subtrai o valor)
+function handleAdicional(checkbox, preco) {
+    if (checkbox.checked) {
+        currentAcai.precoAdicionais += preco;
+        currentAcai.selecionados.adicionaisExtras.push(checkbox.value);
+    } else {
+        currentAcai.precoAdicionais -= preco;
+        currentAcai.selecionados.adicionaisExtras = currentAcai.selecionados.adicionaisExtras.filter(item => item !== checkbox.value);
+    }
+    atualizarPrecoModal();
+}
+
+// ==========================================================================
+// CARRINHO E ENTREGA
+// ==========================================================================
+function toggleCart() {
+    document.getElementById('cartSidebar').classList.toggle('active');
+    document.getElementById('cartOverlay').classList.toggle('active');
+}
+
+function addCustomAcaiToCart() {
+    let detalhesStr = `- Frutas: ${currentAcai.selecionados.fruta.join(', ') || 'Nenhuma'}\n- Acomp: ${currentAcai.selecionados.acomp.join(', ') || 'Nenhum'}\n- Caldas: ${currentAcai.selecionados.calda.join(', ') || 'Nenhuma'}`;
+
+    if (currentAcai.selecionados.adicionaisExtras.length > 0) {
+        detalhesStr += `\n➕ Adicionais (Pagos): ${currentAcai.selecionados.adicionaisExtras.join(', ')}`;
+    }
+
+    cart.push({
+        id: Date.now(),
+        nome: `${currentAcai.nome}\n${detalhesStr}`,
+        preco: currentAcai.precoBase + currentAcai.precoAdicionais,
+        quantidade: 1
     });
-});
 
-// ==================== SCROLL REVEAL ====================
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
+    closeAcaiModal();
+    updateCart();
+    showToast("Açaí adicionado com sucesso!");
+}
+
+function selectDelivery(tipo, element) {
+    document.querySelectorAll('.delivery-option').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+
+    tipoEntrega = tipo;
+    if (tipo === 'delivery') {
+        taxaEntrega = 5.00;
+        document.getElementById('deliveryFee').innerText = `R$ ${taxaEntrega.toFixed(2).replace('.', ',')}`;
+    } else {
+        taxaEntrega = 0.00;
+        document.getElementById('deliveryFee').innerText = 'Grátis';
+    }
+    updateCart();
+}
+
+function updateCart() {
+    const cartItemsDiv = document.getElementById('cartItems');
+    document.getElementById('cartBadge').innerText = cart.length;
+    document.getElementById('mobileCartBadge').innerText = cart.length; // Atualiza a bolinha do celular
+
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `
+            <div class="cart-empty" style="text-align:center; padding: 20px; color:#666;">
+                <i class="fas fa-shopping-basket" style="font-size: 3rem; margin-bottom:10px; color:#ddd;"></i>
+                <p>Seu carrinho está vazio</p>
+            </div>`;
+        document.getElementById('checkoutBtn').disabled = true;
+        document.querySelector('.cart-totals').style.display = 'none';
+        document.querySelector('.delivery-section').style.display = 'none';
+        return;
+    }
+
+    document.querySelector('.cart-totals').style.display = 'block';
+    document.querySelector('.delivery-section').style.display = 'block';
+
+    let total = 0;
+    cartItemsDiv.innerHTML = cart.map((item, index) => {
+        total += item.preco * item.quantidade;
+        return `
+            <div style="border-bottom: 1px solid #eee; padding: 15px 0;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <p style="font-weight:bold; color:var(--roxo-principal);">${item.quantidade}x ${item.nome.split('\n')[0]}</p>
+                    <span style="font-weight:bold; color:var(--verde-destaque);">R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</span>
+                </div>
+                <p style="font-size: 0.85rem; color: #666; white-space: pre-line; margin: 8px 0;">${item.nome.substring(item.nome.indexOf('\n') + 1)}</p>
+                <button onclick="removerItem(${index})" style="background:none; color:#e74c3c; border:none; cursor:pointer; font-size:0.9rem;"><i class="fas fa-trash"></i> Remover</button>
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('subtotal').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    document.getElementById('totalPrice').innerText = `R$ ${(total + taxaEntrega).toFixed(2).replace('.', ',')}`;
+    document.getElementById('checkoutBtn').disabled = false;
+}
+
+function removerItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// ==========================================================================
+// CHECKOUT WHATSAPP
+// ==========================================================================
+function checkout() {
+    if (cart.length === 0) return;
+    let totalPedido = 0;
+    let textoMsg = "Olá, Açaí Delicia26! 💜 Gostaria de fazer um pedido:%0A%0A";
+
+    cart.forEach(item => {
+        totalPedido += item.preco * item.quantidade;
+        let detalhesFormatados = item.nome.replace(/\n/g, '%0A');
+        textoMsg += `*${item.quantidade}x ${detalhesFormatados}* - R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}%0A%0A`;
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    totalPedido += taxaEntrega;
+    textoMsg += `*Subtotal:* R$ ${(totalPedido - taxaEntrega).toFixed(2).replace('.', ',')}%0A`;
 
-// ==================== MOBILE MENU ====================
+    if (tipoEntrega === 'delivery') {
+        textoMsg += `*Taxa de Entrega:* R$ ${taxaEntrega.toFixed(2).replace('.', ',')}%0A`;
+        textoMsg += `*Tipo:* Delivery 🏍️%0A`;
+    } else {
+        textoMsg += `*Tipo:* Retirar no Local 🛍️%0A`;
+    }
+
+    textoMsg += `*TOTAL:* R$ ${totalPedido.toFixed(2).replace('.', ',')}%0A%0A`;
+    textoMsg += tipoEntrega === 'delivery' ? "Qual o tempo estimado para entrega e como passo meu endereço?" : "Em quanto tempo posso passar para retirar?";
+
+    window.open(`https://wa.me/${WPP_NUMBER}?text=${textoMsg}`, '_blank');
+}
+
+// ==========================================================================
+// UI EXTRAS (MENU E TOAST)
+// ==========================================================================
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').innerText = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
+    if (navLinks.style.display === 'flex' && navLinks.style.flexDirection === 'column') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.width = '100%';
+        navLinks.style.background = '#fff'; navLinks.style.padding = '20px';
+    }
 }
-
-// ==================== INIT ====================
-renderMenu();
