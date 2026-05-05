@@ -6,7 +6,7 @@ const WPP_NUMBER = "5584992061776";
 
 // Aqui estão os adicionais com o preço de R$ 2,50 que você pediu
 const ingredientes = {
-    frutas: ["Morango", "Banana", "Kiwi", "Manga", "Uva"],
+    frutas: ["Banana", "Kiwi", "Uva"],
 
     acompanhamentos: [
         "Leite Ninho",
@@ -14,9 +14,9 @@ const ingredientes = {
         "Granola",
         "Amendoim",
         "Chocoball",
-        "Farinha Láctea", // Substituído Sucrilhos por Farinha Láctea
+        "Farinha Láctea",
         "Ovomaltine",
-        "Castanha",
+        "jujuba",
         "Coco Ralado",
         "Confete"
     ],
