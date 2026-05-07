@@ -1,7 +1,8 @@
 // ==========================================================================
 // CONFIGURAÇÕES GERAIS
 // ==========================================================================
-let cart = [];
+// 1. CARREGA DO LOCALSTORAGE (Se houver pedido salvo, ele puxa, se não, começa vazio)
+let cart = JSON.parse(localStorage.getItem('carrinho_acaiteria')) || [];
 const WPP_NUMBER = "5584992061776";
 
 // Aqui estão os adicionais com o preço de R$ 2,50 que você pediu
@@ -41,13 +42,21 @@ let taxaEntrega = 5.00;
 let tipoEntrega = 'delivery';
 
 // ==========================================================================
+// INICIALIZAÇÃO DA PÁGINA
+// ==========================================================================
+// Assim que a página carregar, atualiza o ícone do carrinho se já tiver algo salvo
+document.addEventListener('DOMContentLoaded', () => {
+    updateCart();
+});
+
+// ==========================================================================
 // LÓGICA DO MODAL DE MONTAGEM E ADICIONAIS
 // ==========================================================================
 function openAcaiModal(nome, precoBase, maxAcomp, maxFruta, maxCalda) {
     currentAcai = {
         nome: nome,
         precoBase: precoBase,
-        precoAdicionais: 0, // Inicia os custos extras zerados
+        precoAdicionais: 0,
         selecionados: { acomp: [], fruta: [], calda: [], adicionaisExtras: [] }
     };
 
@@ -57,12 +66,10 @@ function openAcaiModal(nome, precoBase, maxAcomp, maxFruta, maxCalda) {
     document.getElementById('modalBody').innerHTML = '';
     document.getElementById('adicionaisBody').innerHTML = '';
 
-    // Renderiza opções normais (gratuitas dentro do limite)
     renderOptions('fruta', ingredientes.frutas, maxFruta, 'Frutas Inclusas');
     renderOptions('acomp', ingredientes.acompanhamentos, maxAcomp, 'Acompanhamentos');
     renderOptions('calda', ingredientes.caldas, maxCalda, 'Caldas');
 
-    // Renderiza opções pagas (Adicionais)
     renderAdicionaisPagos();
 
     document.getElementById('acaiModal').classList.add('active');
@@ -111,7 +118,6 @@ function renderAdicionaisPagos() {
     container.innerHTML = html;
 }
 
-// Controla os limites dos itens normais
 function handleSelection(checkbox, categoria, limite) {
     const marcados = document.querySelectorAll(`input[name="${categoria}"]:checked`);
     currentAcai.selecionados[categoria] = Array.from(marcados).map(cb => cb.value);
@@ -124,7 +130,6 @@ function handleSelection(checkbox, categoria, limite) {
     }
 }
 
-// Controla os itens pagos extras (Soma e subtrai o valor)
 function handleAdicional(checkbox, preco) {
     if (checkbox.checked) {
         currentAcai.precoAdicionais += preco;
@@ -158,6 +163,9 @@ function addCustomAcaiToCart() {
         quantidade: 1
     });
 
+    // 2. SALVA NO LOCALSTORAGE APÓS ADICIONAR
+    localStorage.setItem('carrinho_acaiteria', JSON.stringify(cart));
+
     closeAcaiModal();
     updateCart();
     showToast("Açaí adicionado com sucesso!");
@@ -181,7 +189,7 @@ function selectDelivery(tipo, element) {
 function updateCart() {
     const cartItemsDiv = document.getElementById('cartItems');
     document.getElementById('cartBadge').innerText = cart.length;
-    document.getElementById('mobileCartBadge').innerText = cart.length; // Atualiza a bolinha do celular
+    document.getElementById('mobileCartBadge').innerText = cart.length;
 
     if (cart.length === 0) {
         cartItemsDiv.innerHTML = `
@@ -220,6 +228,10 @@ function updateCart() {
 
 function removerItem(index) {
     cart.splice(index, 1);
+
+    // 3. ATUALIZA O LOCALSTORAGE APÓS REMOVER
+    localStorage.setItem('carrinho_acaiteria', JSON.stringify(cart));
+
     updateCart();
 }
 
@@ -251,6 +263,15 @@ function checkout() {
     textoMsg += tipoEntrega === 'delivery' ? "Qual o tempo estimado para entrega e como passo meu endereço?" : "Em quanto tempo posso passar para retirar?";
 
     window.open(`https://wa.me/${WPP_NUMBER}?text=${textoMsg}`, '_blank');
+
+    // 4. LIMPA O CARRINHO E O NAVEGADOR APÓS ENVIAR O PEDIDO
+    cart = [];
+    localStorage.removeItem('carrinho_acaiteria');
+    updateCart();
+
+    // Opcional: Fecha o menu do carrinho
+    document.getElementById('cartSidebar').classList.remove('active');
+    document.getElementById('cartOverlay').classList.remove('active');
 }
 
 // ==========================================================================
