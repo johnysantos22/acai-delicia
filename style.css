@@ -636,7 +636,7 @@ h3,
 .toast {
     position: fixed;
     bottom: 30px;
-    right: -300px;
+    right: -350px;
     background: var(--verde-destaque);
     color: var(--roxo-principal);
     padding: 1rem 2rem;
