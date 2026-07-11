@@ -35,4 +35,4 @@ Para manter a aplicação leve, sem custos de VPS no momento inicial (validaçã
 
 1. Clone este repositório:
    ```bash
-   git clone [https://github.com/johnysantos22/acai-delicia.git](https://github.com/johnysantos22/acai-delicia26.git)
+   git clone [https://github.com/johnysantos22/acaiteria-jjtech.git]
