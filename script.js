@@ -3,7 +3,7 @@
 // ==========================================================================
 // 1. CARREGA DO LOCALSTORAGE (Se houver pedido salvo, ele puxa, se não, começa vazio)
 let cart = JSON.parse(localStorage.getItem('carrinho_acaiteria')) || [];
-const WPP_NUMBER = "5584992061776";
+const WPP_NUMBER = "5584996970693";
 
 // Aqui estão os adicionais com o preço de R$ 2,50 que você pediu
 const ingredientes = {
@@ -47,6 +47,7 @@ let tipoEntrega = 'delivery';
 // Assim que a página carregar, atualiza o ícone do carrinho se já tiver algo salvo
 document.addEventListener('DOMContentLoaded', () => {
     updateCart();
+    initScrollAnimations();
 });
 
 // ==========================================================================
@@ -166,6 +167,10 @@ function addCustomAcaiToCart() {
     // 2. SALVA NO LOCALSTORAGE APÓS ADICIONAR
     localStorage.setItem('carrinho_acaiteria', JSON.stringify(cart));
 
+    // Animação de voar até o carrinho
+    const modalContent = document.querySelector('.acai-modal-content');
+    flyToCart(modalContent);
+
     closeAcaiModal();
     updateCart();
     showToast("Açaí adicionado com sucesso!");
@@ -241,7 +246,7 @@ function removerItem(index) {
 function checkout() {
     if (cart.length === 0) return;
     let totalPedido = 0;
-    let textoMsg = "Olá, Açaí Delicia26! 💜 Gostaria de fazer um pedido:%0A%0A";
+    let textoMsg = "Olá, jjtech! 💜 Gostaria de fazer um pedido:%0A%0A";
 
     cart.forEach(item => {
         totalPedido += item.preco * item.quantidade;
@@ -295,4 +300,74 @@ function toggleMenu() {
         navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.width = '100%';
         navLinks.style.background = '#fff'; navLinks.style.padding = '20px';
     }
+}
+
+// ==========================================================================
+// ANIMAÇÕES DE SCROLL (Intersection Observer)
+// ==========================================================================
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observa cards do cardápio
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Observa section headers
+    document.querySelectorAll('.section-header').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ==========================================================================
+// ANIMAÇÃO "VOAR ATÉ O CARRINHO"
+// ==========================================================================
+function flyToCart(element) {
+    const cartBtn = document.querySelector('.cart-nav-btn');
+    const mobileCartBtn = document.getElementById('mobileCartFloat');
+    const targetBtn = window.innerWidth > 768 ? cartBtn : mobileCartBtn;
+
+    if (!targetBtn) return;
+
+    const rect = element.getBoundingClientRect();
+    const targetRect = targetBtn.getBoundingClientRect();
+
+    const flyEl = document.createElement('div');
+    flyEl.className = 'fly-to-cart';
+    flyEl.innerHTML = '🫐';
+    flyEl.style.left = rect.left + rect.width / 2 + 'px';
+    flyEl.style.top = rect.top + rect.height / 2 + 'px';
+    document.body.appendChild(flyEl);
+
+    // Anima para o carrinho
+    requestAnimationFrame(() => {
+        flyEl.style.left = targetRect.left + targetRect.width / 2 + 'px';
+        flyEl.style.top = targetRect.top + targetRect.height / 2 + 'px';
+        flyEl.style.transform = 'scale(0.3) rotate(360deg)';
+        flyEl.style.opacity = '0';
+    });
+
+    // Remove após animação
+    setTimeout(() => {
+        flyEl.remove();
+        // Anima o badge do carrinho
+        if (targetBtn) {
+            targetBtn.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                targetBtn.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }, 800);
 }

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-        <title>Açaí Delicia - O Melhor Açaí da Região</title>
+        <title>Açaiteria jjtech - O Melhor Açaí da Região</title>
 
         <link rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫐</text></svg>">
@@ -22,7 +22,7 @@
 
         <nav class="navbar" id="navbar">
             <a href="#" class="logo">
-                <img src="logo-açai.jpeg" alt="Açaí Delicia26">
+                <img src="img/logo-jjtech.jpeg" alt="jjtech">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Início</a></li>
@@ -43,13 +43,13 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <div class="hero-badge"><i class="fas fa-motorcycle"></i> Entrega Rápida!</div>
-                <h1>AÇAÍ <span>DELICIA</span></h1>
+                <h1>AÇAITERIA <span>JJTECH</span></h1>
                 <div class="hero-subtitle">Monte do seu jeito</div>
                 <p>O melhor açaí da região, com ingredientes frescos e complementos irresistíveis. Escolha seu tamanho e
                     monte a combinação perfeita!</p>
                 <div class="hero-buttons">
                     <a href="#cardapio" class="btn btn-primary"><i class="fas fa-bowl-food"></i> Montar meu Açaí</a>
-                    <a href="https://wa.me/5584992061776" class="btn btn-outline" target="_blank"><i
+                    <a href="https://wa.me/5584996970693" class="btn btn-outline" target="_blank"><i
                             class="fab fa-whatsapp"></i> Falar conosco</a>
                 </div>
             </div>
@@ -72,31 +72,50 @@
             </div>
 
             <div class="acai-grid">
-                <div class="acai-card" onclick="openAcaiModal('Copo 300ml', 11.00, 3, 1, 1)">
-                    <div class="size">300ml</div>
-                    <div class="opcoes">3 acomp. + 1 fruta + 1 cobertura</div>
-                    <div class="price">R$ 11,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                <div class="acai-card animate-on-scroll" onclick="openAcaiModal('Copo 300ml', 11.00, 3, 1, 1)">
+                    <div class="acai-card-image">
+                        <img src="img/açai1.webp" alt="Copo de açaí 300ml" loading="lazy">
+                    </div>
+                    <div class="acai-card-info">
+                        <div class="size">300ml</div>
+                        <div class="opcoes">3 acomp. + 1 fruta + 1 cobertura</div>
+                        <div class="price">R$ 11,00</div>
+                        <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                    </div>
                 </div>
-                <div class="acai-card" onclick="openAcaiModal('Copo 400ml', 15.00, 4, 1, 1)">
-                    <div class="size">400ml</div>
-                    <div class="opcoes">4 acomp. + 1 fruta + 1 cobertura</div>
-                    <div class="price">R$ 15,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                <div class="acai-card animate-on-scroll" onclick="openAcaiModal('Copo 400ml', 15.00, 4, 1, 1)">
+                    <div class="acai-card-image">
+                        <img src="img/açai2.webp" alt="Copo de açaí 400ml" loading="lazy">
+                    </div>
+                    <div class="acai-card-info">
+                        <div class="size">400ml</div>
+                        <div class="opcoes">4 acomp. + 1 fruta + 1 cobertura</div>
+                        <div class="price">R$ 15,00</div>
+                        <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                    </div>
                 </div>
-                <div class="acai-card" style="border-color: var(--roxo-destaque);"
-                    onclick="openAcaiModal('Copo 500ml', 18.00, 5, 1, 1)">
-                    <div class="size">500ml</div>
-                    <div class="opcoes">5 acomp. + 1 fruta + 1 cobertura</div>
-                    <div class="price" style="color: var(--roxo-destaque); font-size: 2.5rem;">R$ 18,00</div>
-                    <div style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">⭐ O Mais Pedido</div>
-                    <button class="add-acai" style="margin-top: 1rem;"><i class="fas fa-plus"></i> Montar</button>
+                <div class="acai-card featured animate-on-scroll" onclick="openAcaiModal('Copo 500ml', 18.00, 5, 1, 1)">
+                    <div class="featured-badge"><i class="fas fa-star"></i> Mais Pedido</div>
+                    <div class="acai-card-image">
+                        <img src="img/açai3.webp" alt="Copo de açaí 500ml" loading="lazy">
+                    </div>
+                    <div class="acai-card-info">
+                        <div class="size">500ml</div>
+                        <div class="opcoes">5 acomp. + 1 fruta + 1 cobertura</div>
+                        <div class="price featured-price">R$ 18,00</div>
+                        <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                    </div>
                 </div>
-                <div class="acai-card" onclick="openAcaiModal('Copo 1 Litro', 28.99, 6, 2, 2)">
-                    <div class="size">1 Litro</div>
-                    <div class="opcoes">6 acomp. + 2 frutas + 2 coberturas</div>
-                    <div class="price">R$ 28,99</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                <div class="acai-card animate-on-scroll" onclick="openAcaiModal('Copo 1 Litro', 28.99, 6, 2, 2)">
+                    <div class="acai-card-image">
+                        <img src="img/açai4.webp" alt="Copo de açaí 1 Litro" loading="lazy">
+                    </div>
+                    <div class="acai-card-info">
+                        <div class="size">1 Litro</div>
+                        <div class="opcoes">6 acomp. + 2 frutas + 2 coberturas</div>
+                        <div class="price">R$ 28,99</div>
+                        <button class="add-acai"><i class="fas fa-plus"></i> Montar</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -109,11 +128,17 @@
             </div>
 
             <div class="acai-grid">
-                <div class="acai-card" onclick="openAcaiModal('Barca 1 Litro', 36.00, 5, 2, 2)">
-                    <div class="size">Barca 1L</div>
-                    <div class="opcoes">5 acomp. + 2 frutas + 2 coberturas</div>
-                    <div class="price">R$ 36,00</div>
-                    <button class="add-acai"><i class="fas fa-plus"></i> Montar Barca</button>
+                <div class="acai-card barca-card animate-on-scroll"
+                    onclick="openAcaiModal('Barca 1 Litro', 36.00, 5, 2, 2)">
+                    <div class="acai-card-image">
+                        <img src="img/açai4.webp" alt="Barca de açaí 1 Litro" loading="lazy">
+                    </div>
+                    <div class="acai-card-info">
+                        <div class="size">Barca 1L</div>
+                        <div class="opcoes">5 acomp. + 2 frutas + 2 coberturas</div>
+                        <div class="price">R$ 36,00</div>
+                        <button class="add-acai"><i class="fas fa-plus"></i> Montar Barca</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -140,32 +165,33 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="logo-açai.jpeg" alt="Açaí Delicia26">
+                        <img src="img/logo-jjtech.jpeg" alt="jjtech">
                     </a>
                     <p>Qualidade, sabor e muito recheio. O açaí que você sempre sonhou, montado do seu jeito!</p>
                     <div class="social-links">
-                        <a href="https://instagram.com/acai_delicia26" target="_blank"><i
+                        <a href="https://instagram.com/johnyysantoss" target="_blank"><i
                                 class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5584992061776" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5584996970693" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h4 style="color: var(--verde-destaque); margin-bottom: 15px;">Contato</h4>
                     <div class="contact-info">
-                        <p style="color:#aaa;"><i class="fab fa-whatsapp"></i> (84) 99206-1776</p>
-                        <p style="color:#aaa;"><i class="fab fa-instagram"></i> @acai_delicia26</p>
+                        <p style="color:#aaa;"><i class="fab fa-whatsapp"></i> (84) 99697-0693</p>
+                        <p style="color:#aaa;"><i class="fab fa-instagram"></i> @johnyysantoss</p>
                         <p style="color:#aaa;"><i class="fas fa-motorcycle"></i> Delivery ativo</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Açaí Delicia26. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Açaiteria jjtech. Todos os direitos reservados.</p>
                 <p class="developer-credit">
-                    Desenvolvido com <i class="fas fa-code"></i> e <i class="fas fa-heart" style="color: #e74c3c;"></i>
-                    por
+                    Desenvolvido com <i class="fas fa-code"></i> e <i class="fas fa-heart" width: 60px; height:
+                        60px;"></i> por <i style="color: #e74c3c;"></i>
+
                     <a href="https://wa.me/5584996970693" target="_blank" rel="noopener noreferrer" class="dev-link">
-                        Johny Santos
+                        jjtech
                     </a>
                 </p>
             </div>
@@ -257,7 +283,7 @@
             }
         </style>
 
-        <a href="https://wa.me/5584992061776" class="wa-flutuante" target="_blank">
+        <a href="https://wa.me/5584996970693" class="wa-flutuante" target="_blank">
             <i class="fab fa-whatsapp"></i>
             <span class="wa-balao">Faça seu pedido!</span>
         </a>
