@@ -1,4 +1,4 @@
-# 🫐 Açaí Delicia - Web App de Pedidos
+# 🫐 AÇAITERIA JJTECJ - Web App de Pedidos
 
 > **Status do Projeto:** 🚀 Em Produção / Atualização Contínua
 
