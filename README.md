@@ -1,4 +1,4 @@
-# 🫐 AÇAITERIA JJTECJ - Web App de Pedidos
+# 🫐 AÇAITERIA JJTECH - Web App de Pedidos
 
 > **Status do Projeto:** 🚀 Em Produção / Atualização Contínua
 
